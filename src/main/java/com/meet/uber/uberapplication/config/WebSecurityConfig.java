@@ -29,10 +29,22 @@ public class WebSecurityConfig  {
                 .csrf(csrfConfig -> csrfConfig.disable())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(PUBLIC_ROUTES).permitAll()
+                        .requestMatchers(AUTH_WHITELIST).permitAll()
                         .anyRequest().authenticated()
                 )
         .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
         return httpSecurity.build();
     }
 
+    public static final String[] AUTH_WHITELIST = {
+            "/api/v1/auth/**",
+            "/v3/api-docs/**",
+            "/swagger-resources/**",
+            "/v3/api-docs.yml",
+            "v3/api-docs/**",
+            "/swagger-ui/**",
+            "/swagger-ui.html",
+    };
+
 }
+

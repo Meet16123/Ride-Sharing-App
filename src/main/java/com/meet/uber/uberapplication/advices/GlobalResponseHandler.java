@@ -20,23 +20,18 @@ public class GlobalResponseHandler implements ResponseBodyAdvice<Object> {
     }
 
     @Override
-    public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType,
-                                  Class<? extends HttpMessageConverter<?>> selectedConverterType,
-                                  ServerHttpRequest request, ServerHttpResponse response) {
-
-        List<String> allowedRoutes = List.of("/v3/api-docs", "/actuator");
-
-        boolean isAllowed = allowedRoutes
+    public Object beforeBodyWrite(Object body, MethodParameter returnType, MediaType selectedContentType, Class<? extends HttpMessageConverter<?>> selectedConverterType, ServerHttpRequest request, ServerHttpResponse response) {
+        List<String> allowedPrefix = List.of("/actuator", "/v3/api-docs");
+        boolean found = allowedPrefix
                 .stream()
-                .anyMatch(route -> request.getURI().getPath().contains(route));
+                .anyMatch(prefix -> request.getURI().getPath().contains(prefix));
 
-        if(request.getURI().getPath().contains("/api-docs")) return body;
-
-        if(body instanceof ApiResponse<?>) {
-            return body;
+        if (body instanceof ApiResponse || found) {
+            return body;  // Avoid wrapping if already an ApiResponse
         }
 
         return new ApiResponse<>(body);
+
     }
 }
 
