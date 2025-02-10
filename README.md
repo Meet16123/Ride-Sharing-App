@@ -48,12 +48,14 @@ The application follows a **microservices architecture** with the following serv
 
 **Design Flow Diagram:**
 
-<img width="1208" alt="Screenshot 2025-01-25 at 12 33 05 PM" src="https://github.com/user-attachments/assets/012825fc-3ea2-4a4b-ac61-9626179136fc" />
+<img width="1208" alt="UBER_DESIGN_FLOW" src="https://github.com/user-attachments/assets/0b05fa78-227e-455d-8935-70b7f256f9b8" />
+
 
 
 **UML Diagram:**
 
-<img width="1208" alt="Screenshot 2025-01-25 at 12 33 28 PM" src="https://github.com/user-attachments/assets/3124d03d-8287-47f0-ba13-615f025b51d5" />
+<img width="694" alt="UBER_UML" src="https://github.com/user-attachments/assets/f05e81db-45c1-47a7-b35a-21126d6341d0" />
+
 
 
 ## Services
