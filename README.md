@@ -1,4 +1,4 @@
-# Uber-Like Ride Booking Application
+# Uber-Like Ride Booking Application:
 
 This project is a **scalable ride-booking application** similar to Uber, built using **Spring Boot**. It supports **real-time ride requests, driver matching, payment processing, and authentication**. The system is designed for high availability, security, and performance.
 
